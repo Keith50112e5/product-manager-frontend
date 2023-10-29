@@ -25,3 +25,30 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Sitemap
+
+```mermaid
+graph LR;
+
+store((Product-Store))
+store-->users[ /users/]
+store-->products[ /products/]
+store-->categories[ /categories/]
+
+users-->/register
+users-->admin([admin])
+admin-->ulist[ /]
+admin-->user[ /:id]
+users-->/login
+
+products-->/category/:id
+products-->admin2([admin])
+admin2-->/mod/:id
+products-->/
+products-->/:id
+
+categories-->admin2
+categories-->/
+categories-->/:id
+```
