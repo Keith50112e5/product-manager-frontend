@@ -38,6 +38,7 @@ store-->categories[ /categories/]
 
 users-->/register
 users-->admin([admin])
+admin-->umod[ /mod/:id]
 admin-->ulist[ /]
 admin-->user[ /:id]
 users-->/login
