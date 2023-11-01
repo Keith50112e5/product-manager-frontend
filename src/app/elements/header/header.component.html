@@ -6,8 +6,18 @@
   >
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Produkt Manager</span>
+  <span routerLink="/">Produkt Manager</span>
   <span class="example-spacer"></span>
-  <button mat-button>Categories</button>
-  <button mat-button>Products</button>
+  <button mat-button [matMenuTriggerFor]="category">Categories</button>
+  <mat-menu #category="matMenu">
+    <button routerLink="/categories" mat-menu-item>List</button>
+    <button routerLink="/categories/mod/1" mat-menu-item>Create</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="menu">Products</button>
+  <mat-menu #menu="matMenu">
+    <button routerLink="/products" mat-menu-item>List</button>
+    <button routerLink="/products/mod/1" mat-menu-item>Create</button>
+  </mat-menu>
+  <button routerLink="/users/login" mat-button>Login</button>
 </mat-toolbar>
