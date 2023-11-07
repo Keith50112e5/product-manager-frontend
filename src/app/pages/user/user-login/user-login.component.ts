@@ -1,23 +1,37 @@
 import { Component } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginRequestDto, UserControllerService } from 'src/app/openapi-client';
 
 @Component({
   selector: 'pm-user-login',
   templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.scss']
+  styleUrls: ['./user-login.component.scss'],
 })
 export class UserLoginComponent {
   loginForm;
-  constructor(private _fb: FormBuilder) {
-    const {email,minLength, maxLength, required} = Validators
-    this.loginForm = this._fb.group({
-      email: ["", [required,email]],
-      password: ["", [required,minLength(8),maxLength(64)]]
+  submitted = false;
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UserControllerService
+  ) {
+    const { email, minLength, maxLength, required } = Validators;
+    const length = (min: number, max: number) => [
+      minLength(min),
+      maxLength(max),
+    ];
+    this.loginForm = this.formBuilder.group({
+      email: ['aa@aa.aa', [required, email]],
+      password: ['0LEB3k\\y%/3;c:Qn<}>CK}RyHuT<B#i+lBrr', length(8, 64)],
     });
   }
 
-  logForm() {
-    console.log(this.loginForm)
-    alert(JSON.stringify(this.loginForm.value))
-  }
+  submit = (form: FormGroup) => {
+    this.submitted = true;
+    if (!form.valid) return;
+    this.userService.login(form.value as LoginRequestDto).subscribe((v) => {
+      sessionStorage.setItem('pm_jwt', '' + v.token);
+    });
+  };
 }

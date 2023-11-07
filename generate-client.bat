@@ -1,0 +1,1 @@
+npx openapi-generator-cli generate -i https://product-manager.cyrotech.ch/v3/api-docs -g typescript-angular -o src/app/openapi-client 

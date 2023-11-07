@@ -1,17 +1,34 @@
-<form action="" [formGroup]="loginForm" (ngSubmit)="logForm()">
+<form action="" [formGroup]="loginForm" (ngSubmit)="submit(loginForm)">
   <mat-card>
-    <mat-card-header>
-      Login
-    </mat-card-header>
+    <mat-card-header> Login </mat-card-header>
     <mat-card-content>
-      <mat-form-field>
-      <mat-label>Input</mat-label>
-      <input matInput>
-    </mat-form-field>
+      <mat-form-field [formControl]="loginForm.controls.email">
+        <mat-label>E-Mail:</mat-label>
+        <input formControlName="email" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field [formControl]="loginForm.controls.password">
+        <mat-label>Password:</mat-label>
+        <input formControlName="password" matInput />
+      </mat-form-field>
+      <br />
+      <small [hidden]="loginForm.valid || !submitted">
+        E-Mail oder Passwort ist falsch!
+      </small>
     </mat-card-content>
     <mat-card-actions class="flex flex-row just-center gap-1">
-      <button mat-button mat-raised-button color="primary" type="submit" >Anmelden</button>
-      <button mat-button mat-raised-button color="accent" type="button">Registrieren</button>
+      <button mat-button mat-raised-button color="primary" type="submit">
+        Anmelden
+      </button>
+      <button
+        routerLink="/users/register"
+        mat-button
+        mat-raised-button
+        color="accent"
+        type="button"
+      >
+        Registrieren
+      </button>
     </mat-card-actions>
   </mat-card>
 </form>
