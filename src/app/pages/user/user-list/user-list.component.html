@@ -1,4 +1,9 @@
-<p>user-list works!</p>
-<div *ngFor="let user of users">
-  {{ display(user) }}
-</div>
+<h1>Users</h1>
+<table border="1">
+  <tr>
+    <th *ngFor="let title of keys(users)">{{ title }}</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td *ngFor="let data of display(user)">{{ data }}</td>
+  </tr>
+</table>

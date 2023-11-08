@@ -10,7 +10,9 @@ export class CategoryListComponent {
   categories: any;
   constructor(private categoryService: CategoryControllerService) {
     categoryService.getAllCategories().subscribe((v) => {
-      this.categories = JSON.stringify(v);
+      this.categories = v;
     });
   }
+  display = (json: object) => Object.values(json);
+  keys = (arr: Array<object>) => [...new Set(Object.keys(arr[0]))];
 }

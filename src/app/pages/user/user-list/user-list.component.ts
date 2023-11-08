@@ -15,4 +15,5 @@ export class UserListComponent {
     });
   }
   display = (json: object) => Object.values(json);
+  keys = (arr: Array<object>) => [...new Set(Object.keys(arr[0]))];
 }

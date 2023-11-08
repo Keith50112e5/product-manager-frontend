@@ -1,1 +1,9 @@
-<p>category-detail works!</p>
+<h1>{{ category.name }}</h1>
+
+<p *ngIf="category.products.length < 1">No Products</p>
+
+<table border="1" *ngIf="category.products.length > 0">
+  <tr *ngFor="let data of category.products">
+    <td>{{ data }}</td>
+  </tr>
+</table>

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private router: Router) {
-    const token = sessionStorage.getItem('pm_jwt');
-    router.navigateByUrl(!token ? '/users/login' : '/categories');
+    //   const token = sessionStorage.getItem('pm_jwt');
+    //   router.navigateByUrl(!token ? '/users/login' : '/categories');
   }
 }

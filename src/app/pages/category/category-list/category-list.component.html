@@ -1,1 +1,14 @@
-<p>category-list works! {{ categories }}</p>
+<h1>Categories</h1>
+
+<p *ngIf="categories.length < 1">No Categories</p>
+
+<table border="1" *ngIf="categories.length > 0">
+  <tr>
+    <th *ngFor="let title of keys(categories)">{{ title }}</th>
+  </tr>
+  <tr *ngFor="let category of categories">
+    <td *ngFor="let data of display(category)">
+      <a routerLink="/categories/{{ category.id }}">{{ data }}</a>
+    </td>
+  </tr>
+</table>
