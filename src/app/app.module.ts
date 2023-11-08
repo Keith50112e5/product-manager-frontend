@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './elements/header/header.component';
 import { FooterComponent } from './elements/footer/footer.component';
 import { ApiModule, Configuration } from './openapi-client';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
 
 const basePath = 'https://product-manager.cyrotech.ch';
 
@@ -22,7 +23,13 @@ const basePath = 'https://product-manager.cyrotech.ch';
     HttpClientModule,
     ApiModule.forRoot(() => new Configuration({ basePath })),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: AuthorizationInterceptor,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

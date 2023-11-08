@@ -21,17 +21,18 @@ export class UserLoginComponent {
       minLength(min),
       maxLength(max),
     ];
-    this.loginForm = this.formBuilder.group({
-      email: ['aa@aa.aa', [required, email]],
-      password: ['0LEB3k\\y%/3;c:Qn<}>CK}RyHuT<B#i+lBrr', length(8, 64)],
+    this.loginForm = formBuilder.group({
+      email: ['tester0811@gmail.com', [required, email]],
+      password: ['testerJ$2', length(8, 64)],
     });
   }
 
   submit = (form: FormGroup) => {
     this.submitted = true;
     if (!form.valid) return;
-    this.userService.login(form.value as LoginRequestDto).subscribe((v) => {
+    this.userService.login(form.value).subscribe((v) => {
       sessionStorage.setItem('pm_jwt', '' + v.token);
+      this.router.navigateByUrl('/categories');
     });
   };
 }

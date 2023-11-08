@@ -7,7 +7,9 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span routerLink="/">Produkt Manager</span>
+
   <span class="example-spacer"></span>
+  <button mat-button routerLink="/users">Users</button>
   <button mat-button [matMenuTriggerFor]="category">Categories</button>
   <mat-menu #category="matMenu">
     <button routerLink="/categories" mat-menu-item>List</button>
