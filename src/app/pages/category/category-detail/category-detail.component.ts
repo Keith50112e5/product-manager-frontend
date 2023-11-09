@@ -8,14 +8,13 @@ import { CategoryControllerService } from 'src/app/openapi-client';
   styleUrls: ['./category-detail.component.scss'],
 })
 export class CategoryDetailComponent {
-  id: number;
   category: any;
   constructor(
     private myRoute: ActivatedRoute,
     private categoryService: CategoryControllerService
   ) {
-    this.id = myRoute.snapshot.params['id'];
-    categoryService.getCategoryById(this.id).subscribe((v) => {
+    const id = myRoute.snapshot.params['id'];
+    categoryService.getCategoryById(id).subscribe((v) => {
       this.category = v;
     });
   }

@@ -1,1 +1,48 @@
-<p>product-modify works!</p>
+<form action="" [formGroup]="productForm" (ngSubmit)="submit(productForm)">
+  <mat-card>
+    <mat-card-header> product </mat-card-header>
+    <hr />
+    <mat-card-content>
+      <mat-slide-toggle formControlName="active">Active</mat-slide-toggle>
+      <br />
+      <mat-form-field>
+        <mat-label>Sku:</mat-label>
+        <input formControlName="sku" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Image:</mat-label>
+        <input formControlName="image" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Description:</mat-label>
+        <input formControlName="description" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field formControlName="price" floatLabel="always">
+        <mat-label>Price:</mat-label>
+        <input matInput type="number" id="price" placeholder="0" />
+        <span matTextPrefix>CHF</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Stock:</mat-label>
+        <input formControlName="stock" matInput type="number" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Select me</mat-label>
+        <mat-select *ngFor="let category of categories">
+          <mat-option value="{{ category.id }}">{{ category.id }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button mat-raised-button color="primary" type="submit">
+        Hinzufügen
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

@@ -8,7 +8,9 @@
   </tr>
   <tr *ngFor="let product of products">
     <td *ngFor="let data of display(product)">
-      <a routerLink="/categories/{{ product.id }}">{{ data }}</a>
+      <a routerLink="/products/{{ product.id }}">{{ data }}</a>
     </td>
   </tr>
 </table>
+
+<button id="addButton" mat-button routerLink="/products/mod">Add</button>

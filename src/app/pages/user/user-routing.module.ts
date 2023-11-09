@@ -5,13 +5,14 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserModifyComponent } from './user-modify/user-modify.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { authGuard } from 'src/app/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: UserListComponent },
+  { path: '', component: UserListComponent, canActivate: [authGuard] },
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegisterComponent },
-  { path: 'mod/:id', component: UserModifyComponent },
-  { path: ':id', component: UserDetailComponent },
+  { path: 'mod/:id', component: UserModifyComponent, canActivate: [authGuard] },
+  { path: ':id', component: UserDetailComponent, canActivate: [authGuard] },
 ];
 
 @NgModule({

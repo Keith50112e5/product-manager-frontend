@@ -4,12 +4,22 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductModifyComponent } from './product-modify/product-modify.component';
 import { ProductCategoryComponent } from './product-category/product-category.component';
+import { authGuard } from 'src/app/guards/auth.guard';
 
 const routes: Routes = [
+  {
+    path: 'add',
+    component: ProductModifyComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'mod/:id',
+    component: ProductModifyComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'category/:id', component: ProductCategoryComponent },
   { path: '', component: ProductListComponent },
   { path: ':id', component: ProductDetailComponent },
-  { path: 'mod/:id', component: ProductModifyComponent },
-  { path: 'category/:id', component: ProductCategoryComponent },
 ];
 
 @NgModule({

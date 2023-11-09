@@ -16,6 +16,8 @@ export class UserLoginComponent {
     private router: Router,
     private userService: UserControllerService
   ) {
+    if (sessionStorage.getItem('pm_jwt')) sessionStorage.removeItem('pm_jwt');
+
     const { email, minLength, maxLength, required } = Validators;
     const length = (min: number, max: number) => [
       minLength(min),

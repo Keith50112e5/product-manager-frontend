@@ -16,9 +16,8 @@ export class AuthorizationInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const token = sessionStorage.getItem('pm_jwt');
-    const clone = request.clone({
-      setHeaders: { Authorization: 'Bearer ' + token },
-    });
-    return next.handle(!token ? request : clone);
+    const setHeaders = { Authorization: 'Bearer ' + token };
+
+    return next.handle(!token ? request : request.clone({ setHeaders }));
   }
 }
