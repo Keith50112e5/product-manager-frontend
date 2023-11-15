@@ -13,6 +13,11 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'mod',
+    component: ProductModifyComponent,
+    canActivate: [authGuard],
+  },
+  {
     path: 'mod/:id',
     component: ProductModifyComponent,
     canActivate: [authGuard],

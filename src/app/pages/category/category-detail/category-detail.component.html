@@ -3,7 +3,20 @@
 <p *ngIf="category.products.length < 1">No Products</p>
 
 <table border="1" *ngIf="category.products.length > 0">
+  <tr>
+    <td>id</td>
+    <td>image</td>
+    <td>name</td>
+    <td>price</td>
+    <td>sku</td>
+    <td>stock</td>
+  </tr>
   <tr *ngFor="let data of category.products">
-    <td>{{ data }}</td>
+    <td>{{ data.id }}</td>
+    <td>{{ data.image }}</td>
+    <td>{{ data.name }}</td>
+    <td>{{ data.price }}</td>
+    <td>{{ data.sku }}</td>
+    <td>{{ data.stock }}</td>
   </tr>
 </table>

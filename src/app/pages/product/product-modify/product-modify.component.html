@@ -6,37 +6,46 @@
       <mat-slide-toggle formControlName="active">Active</mat-slide-toggle>
       <br />
       <mat-form-field>
-        <mat-label>Sku:</mat-label>
+        <mat-label>Sku: </mat-label>
         <input formControlName="sku" matInput />
       </mat-form-field>
       <br />
       <mat-form-field>
-        <mat-label>Image:</mat-label>
+        <mat-label>Image: </mat-label>
         <input formControlName="image" matInput />
       </mat-form-field>
       <br />
       <mat-form-field>
-        <mat-label>Description:</mat-label>
+        <mat-label>name: </mat-label>
+        <input formControlName="name" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Description: </mat-label>
         <input formControlName="description" matInput />
       </mat-form-field>
       <br />
-      <mat-form-field formControlName="price" floatLabel="always">
-        <mat-label>Price:</mat-label>
-        <input matInput type="number" id="price" placeholder="0" />
+      <mat-form-field floatLabel="always">
+        <mat-label>Price: </mat-label>
+        <input
+          matInput
+          formControlName="price"
+          type="number"
+          id="price"
+          placeholder="0"
+        />
         <span matTextPrefix>CHF</span>
         <span matTextSuffix>.00</span>
       </mat-form-field>
       <br />
       <mat-form-field>
-        <mat-label>Stock:</mat-label>
+        <mat-label>Stock: </mat-label>
         <input formControlName="stock" matInput type="number" />
       </mat-form-field>
       <br />
       <mat-form-field>
-        <mat-label>Select me</mat-label>
-        <mat-select *ngFor="let category of categories">
-          <mat-option value="{{ category.id }}">{{ category.id }}</mat-option>
-        </mat-select>
+        <mat-label>Category Id: </mat-label>
+        <input formControlName="categoryId" matInput type="number" />
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>

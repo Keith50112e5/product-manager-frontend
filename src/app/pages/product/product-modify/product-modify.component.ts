@@ -35,7 +35,7 @@ export class ProductModifyComponent {
       image: ['', [required]],
       description: ['', [required]],
       price: [0, [required]],
-      stock: [0, []],
+      stock: [0],
       categoryId: [0],
     });
     this.id = myRoute.snapshot.queryParams['id'];
@@ -47,7 +47,16 @@ export class ProductModifyComponent {
   }
   submit = (form: FormGroup) => {
     this.submitted = true;
-    if (!form.valid) return;
-    this.productService.createProduct(form.value);
+    if (this.id) {
+      this.productService
+        .updateProductById(this.id, form.value)
+        .subscribe((v) => {
+          this.router.navigateByUrl('/products');
+        });
+    } else {
+      this.productService.createProduct(form.value).subscribe((v) => {
+        this.router.navigateByUrl('/products');
+      });
+    }
   };
 }

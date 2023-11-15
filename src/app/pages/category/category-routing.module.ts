@@ -6,13 +6,18 @@ import { CategoryModifyComponent } from './category-modify/category-modify.compo
 import { authGuard } from 'src/app/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: CategoryListComponent },
-  { path: ':id', component: CategoryDetailComponent },
   {
     path: 'mod/:id',
     component: CategoryModifyComponent,
     canActivate: [authGuard],
   },
+  {
+    path: 'mod',
+    component: CategoryModifyComponent,
+    canActivate: [authGuard],
+  },
+  { path: '', component: CategoryListComponent },
+  { path: ':id', component: CategoryDetailComponent },
 ];
 
 @NgModule({

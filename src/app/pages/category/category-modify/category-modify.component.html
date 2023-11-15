@@ -1,1 +1,20 @@
-<p>category-modify works!</p>
+<form action="" [formGroup]="categoryForm" (ngSubmit)="submit(categoryForm)">
+  <mat-card>
+    <mat-card-header> product </mat-card-header>
+    <hr />
+    <mat-card-content>
+      <mat-slide-toggle formControlName="active">Active</mat-slide-toggle>
+      <br />
+      <mat-form-field>
+        <mat-label>name: </mat-label>
+        <input formControlName="name" matInput />
+      </mat-form-field>
+      <br />
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button mat-raised-button color="primary" type="submit">
+        Hinzufügen
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
