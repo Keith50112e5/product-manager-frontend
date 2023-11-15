@@ -34,7 +34,7 @@ export class UserLoginComponent {
     if (!form.valid) return;
     this.userService.login(form.value).subscribe((v) => {
       sessionStorage.setItem('pm_jwt', '' + v.token);
-      this.router.navigateByUrl('/categories');
+      this.router.navigateByUrl('/products');
     });
   };
 }

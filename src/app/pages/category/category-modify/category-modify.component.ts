@@ -26,7 +26,7 @@ export class CategoryModifyComponent {
       active: [true, [required]],
       name: ['', [required]],
     });
-    this.id = myRoute.snapshot.queryParams['id'];
+    this.id = myRoute.snapshot.params['id'];
     if (this.id) {
       categoryService.getCategoryById(this.id).subscribe((v) => {
         this.categoryForm.patchValue(v as CategoryCreateDto);
@@ -35,8 +35,15 @@ export class CategoryModifyComponent {
   }
   submit = (form: FormGroup) => {
     this.submitted = true;
-    this.categoryService.createCategory(form.value).subscribe((v) => {
-      this.router.navigateByUrl('/categories');
-    });
+
+    this.id
+      ? this.categoryService
+          .updateCategoryById(this.id, form.value)
+          .subscribe((v) => {
+            this.router.navigateByUrl('/categories');
+          })
+      : this.categoryService.createCategory(form.value).subscribe((v) => {
+          this.router.navigateByUrl('/categories');
+        });
   };
 }

@@ -1,6 +1,6 @@
 <h1>Categories</h1>
 
-<p *ngIf="categories.length < 1">No Categories</p>
+<p *ngIf="categories?.length < 1">No Categories</p>
 
 <table border="1" *ngIf="categories.length > 0">
   <tr>
@@ -12,4 +12,6 @@
     </td>
   </tr>
 </table>
-<button id="addButton" mat-button routerLink="/categories/mod">Add</button>
+<button id="addButton" mat-button color="primary" routerLink="/categories/mod">
+  Add
+</button>

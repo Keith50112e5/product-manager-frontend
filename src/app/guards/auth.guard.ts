@@ -2,16 +2,8 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
-interface TokenData {
-  sub: string;
-  roles: Array<string>;
-  exp: number;
-  iat: number;
-  email: string;
-}
-
 const fromToken = (token: any) => (role: string) => {
-  const data: TokenData = jwtDecode(token);
+  const data: any = jwtDecode(token);
   return data.roles.includes(role);
 };
 

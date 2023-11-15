@@ -38,7 +38,7 @@ export class ProductModifyComponent {
       stock: [0],
       categoryId: [0],
     });
-    this.id = myRoute.snapshot.queryParams['id'];
+    this.id = myRoute.snapshot.params['id'];
     if (this.id) {
       productService.getProductById(this.id).subscribe((v) => {
         this.productForm.patchValue(v as ProductCreateDto);
@@ -47,16 +47,14 @@ export class ProductModifyComponent {
   }
   submit = (form: FormGroup) => {
     this.submitted = true;
-    if (this.id) {
-      this.productService
-        .updateProductById(this.id, form.value)
-        .subscribe((v) => {
+    this.id
+      ? this.productService
+          .updateProductById(this.id, form.value)
+          .subscribe((v) => {
+            this.router.navigateByUrl('/products');
+          })
+      : this.productService.createProduct(form.value).subscribe((v) => {
           this.router.navigateByUrl('/products');
         });
-    } else {
-      this.productService.createProduct(form.value).subscribe((v) => {
-        this.router.navigateByUrl('/products');
-      });
-    }
   };
 }

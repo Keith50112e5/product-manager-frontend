@@ -11,7 +11,6 @@ export class ProductListComponent {
   constructor(private productService: ProductControllerService) {
     productService.getAllProducts().subscribe((v) => {
       this.products = v;
-      console.log(v);
     });
   }
   display = (json: object) => Object.values(json);
