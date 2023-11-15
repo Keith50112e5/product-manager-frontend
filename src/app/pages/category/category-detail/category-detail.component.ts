@@ -25,7 +25,6 @@ export class CategoryDetailComponent {
     Swal.fire({
       title: 'Delete',
       text: `Delete category id: ${this.id} ?`,
-      // icon: 'question',
       cancelButtonText: 'Abbrechen',
       showCancelButton: true,
     }).then((res) => {

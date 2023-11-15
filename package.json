@@ -6,7 +6,8 @@
     "start": "ng serve --open",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generate-client": "& generate-client.bat"
   },
   "private": true,
   "dependencies": {

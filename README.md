@@ -26,6 +26,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## OpenAPI
+
+`npm run generate-client`
+
+or
+
+`& generate-client.bat`
+
+## Userdata
+
+| -        | -             |
+| -------- | ------------- |
+| email    | Adm1n@csbe.ch |
+| password | Adm1n@csbe.ch |
+
 ## Sitemap
 
 ```mermaid
@@ -43,10 +58,10 @@ admin-->ulist[ /]
 admin-->user[ /:id]
 users-->/login
 
-products-->/category/:id
+products-->/
 products-->admin2([admin])
 admin2-->/mod/:id
-products-->/
+admin2-->/mod
 products-->/:id
 
 categories-->admin2

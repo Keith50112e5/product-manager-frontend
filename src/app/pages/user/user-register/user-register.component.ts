@@ -22,16 +22,16 @@ export class UserRegisterComponent {
       maxLength(max),
     ];
     this.registerForm = this.formBuilder.group({
-      firstName: ['asdf', [required]],
-      lastName: ['asdf', [required]],
-      street: ['asdf', [required]],
-      zip: ['asdfa', [required]],
-      city: ['asdf', [required]],
-      country: ['as', length(2, 2)],
-      phone: ['asdf', [required]],
-      mobilePhone: ['asdf', [required]],
-      email: ['aa@aa.aa', [required, email]],
-      password: ['0LEB3k\\y%/3;c:Qn<}>CK}RyHuT<B#i+lBrr', length(8, 64)],
+      firstName: ['', [required]],
+      lastName: ['', [required]],
+      street: ['', [required]],
+      zip: ['', [required]],
+      city: ['', [required]],
+      country: ['', length(2, 2)],
+      phone: ['', [required]],
+      mobilePhone: ['', [required]],
+      email: ['', [required, email]],
+      password: ['', length(8, 64)],
     });
   }
 

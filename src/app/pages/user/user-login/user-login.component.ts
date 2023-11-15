@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginRequestDto, UserControllerService } from 'src/app/openapi-client';
+import { UserControllerService } from 'src/app/openapi-client';
 
 @Component({
   selector: 'pm-user-login',
@@ -24,8 +24,8 @@ export class UserLoginComponent {
       maxLength(max),
     ];
     this.loginForm = formBuilder.group({
-      email: ['tester0811@gmail.com', [required, email]],
-      password: ['testerJ$2', length(8, 64)],
+      email: ['', [required, email]],
+      password: ['', length(8, 64)],
     });
   }
 
