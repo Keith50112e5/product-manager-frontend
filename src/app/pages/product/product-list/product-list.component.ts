@@ -13,6 +13,4 @@ export class ProductListComponent {
       this.products = v;
     });
   }
-  display = (json: object) => Object.values(json);
-  keys = (arr: Array<object>) => [...new Set(Object.keys(arr[0]))];
 }

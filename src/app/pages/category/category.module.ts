@@ -10,6 +10,8 @@ import {MatCardModule} from "@angular/material/card";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatTableModule} from "@angular/material/table";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -17,6 +19,6 @@ import {ReactiveFormsModule} from "@angular/forms";
     CategoryModifyComponent,
     CategoryDetailComponent,
   ],
-  imports: [CommonModule, CategoryRoutingModule, MatButtonModule, MatCardModule, MatSlideToggleModule, MatInputModule, ReactiveFormsModule],
+  imports: [CommonModule, CategoryRoutingModule, MatButtonModule, MatCardModule, MatSlideToggleModule, MatInputModule, ReactiveFormsModule, MatTableModule, MatIconModule],
 })
 export class CategoryModule {}

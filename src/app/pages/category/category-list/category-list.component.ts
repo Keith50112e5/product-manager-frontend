@@ -7,6 +7,7 @@ import { CategoryControllerService } from 'src/app/openapi-client';
   styleUrls: ['./category-list.component.scss'],
 })
 export class CategoryListComponent {
+  columnNames = ['id', 'name', 'action'];
   categories: any;
   constructor(private categoryService: CategoryControllerService) {
     categoryService.getAllCategories().subscribe((v) => {

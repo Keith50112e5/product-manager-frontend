@@ -38,8 +38,9 @@ export class UserRegisterComponent {
   submit = (form: FormGroup) => {
     this.submitted = true;
     if (!form.valid) return;
-    this.userService
-      .register(form.value)
-      .subscribe((v) => this.router.navigateByUrl('/users/login'));
+    this.userService.register(form.value).subscribe((v) => {
+      this.router.navigateByUrl('/users/login');
+      alert('User registered.');
+    });
   };
 }

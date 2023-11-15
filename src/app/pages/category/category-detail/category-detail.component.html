@@ -1,37 +1,16 @@
-<h1>{{ category.name }}</h1>
+<h1>{{ category.name }} - Products</h1>
 
 <p *ngIf="category?.products?.length < 1">No Products</p>
 
-<table border="1" *ngIf="category.products.length > 0">
-  <tr>
-    <td>id</td>
-    <td>image</td>
-    <td>name</td>
-    <td>price</td>
-    <td>sku</td>
-    <td>stock</td>
-  </tr>
-  <tr *ngFor="let data of category.products">
-    <td>
-      <a routerLink="/products/{{ data.id }}">{{ data.id }}</a>
-    </td>
-    <td>
-      <a routerLink="/products/{{ data.id }}">{{ data.image }}</a>
-    </td>
-    <td>
-      <a routerLink="/products/{{ data.id }}">{{ data.name }}</a>
-    </td>
-    <td>
-      <a routerLink="/products/{{ data.id }}">{{ data.price }}</a>
-    </td>
-    <td>
-      <a routerLink="/products/{{ data.id }}">{{ data.sku }}</a>
-    </td>
-    <td>
-      <a routerLink="/products/{{ data.id }}">{{ data.stock }}</a>
-    </td>
-  </tr>
-</table>
+<div *ngIf="category?.products?.length > 0" id="listOfProducts">
+  <div class="productListElem" *ngFor="let product of category?.products">
+    <a routerLink="/products/{{ product.id }}">
+      <h2>{{ product.name }}</h2>
+      <img src="{{ product.image }}" alt="{{ product.name }}" />
+    </a>
+  </div>
+</div>
+
 <button
   mat-button
   mat-raised-button
@@ -42,6 +21,7 @@
   edit
 </button>
 <button
+  *ngIf="category?.products?.length < 1"
   mat-button
   mat-raised-button
   color="primary"

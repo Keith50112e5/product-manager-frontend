@@ -1,17 +1,14 @@
 <h1>Products</h1>
 
 <p *ngIf="products.length < 1">No Products</p>
-
-<table border="1" *ngIf="products.length > 0">
-  <tr>
-    <th *ngFor="let title of keys(products)">{{ title }}</th>
-  </tr>
-  <tr *ngFor="let product of products">
-    <td *ngFor="let data of display(product)">
-      <a routerLink="/products/{{ product.id }}">{{ data }}</a>
-    </td>
-  </tr>
-</table>
+<div *ngIf="products.length > 0" id="listOfProducts">
+  <div class="productListElem" *ngFor="let product of products">
+    <a routerLink="/products/{{ product.id }}">
+      <h2>{{ product.name }}</h2>
+      <img src="{{ product.image }}" alt="{{ product.name }}" />
+    </a>
+  </div>
+</div>
 
 <button id="addButton" mat-button color="primary" routerLink="/products/mod">
   Add

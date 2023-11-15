@@ -1,0 +1,11 @@
+img {
+  width: 240px;
+}
+#listOfProducts {
+  display: flex;
+  flex-wrap: wrap;
+}
+.productListElem {
+  padding: 20px;
+  border: groove;
+}

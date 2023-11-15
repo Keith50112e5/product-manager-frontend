@@ -24,15 +24,15 @@ export class ProductDetailComponent {
   delete = () => {
     Swal.fire({
       title: 'Delete',
-      text: `Delete category id: ${this.id} ?`,
+      text: `Delete product id: ${this.id} ?`,
       // icon: 'question',
       cancelButtonText: 'Abbrechen',
       showCancelButton: true,
     }).then((res) => {
       if (res.isConfirmed) {
         this.productService.deleteProductById(this.id).subscribe((v) => {
-          this.router.navigateByUrl('/categories');
-          alert(`Category id: ${this.id} has been deleted.`);
+          this.router.navigateByUrl('/products');
+          alert(`Product id: ${this.id} has been deleted.`);
         });
       }
     });
